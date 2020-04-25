@@ -1,0 +1,13 @@
+.box_shadow {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 0.5, 0, 5, 0);
+}
+
+.btn_padding {
+    -fx-padding : 15 20 15 25;
+    -fx-cursor: hand;
+}
+
+
+.btn_img-padding {
+-fx-padding-right: 10px;
+}
