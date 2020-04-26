@@ -114,3 +114,18 @@
     -fx-background-insets : 2.0, 0.0, 0.0;
     -fx-background-radius : 2.0em;
 }
+
+.card-title {
+	-fx-font-weight: bold;
+	 -fx-font-size: 18;
+	-fx-text-background-color:  #202426e3;
+
+	}
+
+
+.card-title-2 {
+	-fx-font-weight: bold;
+	 -fx-font-size: 32;
+	-fx-text-background-color:  #36BEA6;
+    -fx-text-background-color:  #20242650;
+	}
