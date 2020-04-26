@@ -31,7 +31,7 @@
     -fx-background-color:  #F5F5F5 ;
 }
 .table-view .column-header .label{
-   -fx-text-fill: #D8D8D8;
+   -fx-text-fill: #212528;
    -fx-font-weight: bold;
    -fx-alignment: CENTER_LEFT;
 }
@@ -40,7 +40,7 @@
   -fx-alignment: center-left;
   -fx-background-color: #fcfcfc;
   -fx-border-color: #FFFFFF;
-  -fx-text-fill: #D8D8D8;
+  -fx-text-fill: #212528;
   -fx-alignment: CENTER_LEFT;
 
 }

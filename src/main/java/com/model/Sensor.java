@@ -1,6 +1,8 @@
-package models;
+package com.model;
 
-public class Sensor {
+import java.io.Serializable;
+
+public class Sensor implements Serializable {
 
     private int id;
     private String floor_id;
@@ -8,6 +10,23 @@ public class Sensor {
     private int smoke_level;
     private int co2_level;
     private String updated_at;
+    private String status;
+
+    public int getCo2_level() {
+        return co2_level;
+    }
+
+    public void setCo2_level(int co2_level) {
+        this.co2_level = co2_level;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public Sensor() { }
 
@@ -43,13 +62,6 @@ public class Sensor {
         this.smoke_level = smoke_level;
     }
 
-    public int getC02_level() {
-        return co2_level;
-    }
-
-    public void setC02_level(int c02_level) {
-        this.co2_level = c02_level;
-    }
 
     public String getUpdated_at() {
         return updated_at;

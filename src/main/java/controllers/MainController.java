@@ -15,9 +15,11 @@ import javafx.scene.layout.BorderPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
 
 public class MainController implements Initializable {
 
+    Timer timer = new Timer();
     @FXML
     private BorderPane borderpane;
     @FXML
@@ -50,8 +52,15 @@ public class MainController implements Initializable {
 
     public void loadPage(String page, BorderPane bp) {
         try {
-            Parent root;
-            root = FXMLLoader.load(getClass().getResource("/pages/" + page + ".fxml"));
+            timer.cancel();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/pages/" + page + ".fxml"));
+            Parent root = (Parent)fxmlLoader.load();
+
+            if(page == "dashboard"){
+                timer = new Timer();
+                DashboardController dashboardController = fxmlLoader.<DashboardController>getController();
+                dashboardController.init(timer);
+            }
             bp.setCenter(root);
         } catch (IOException ex) {
             System.out.println("Exception : " +ex);

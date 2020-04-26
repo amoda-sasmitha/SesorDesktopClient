@@ -1,6 +1,8 @@
-package models;
+package com.model;
 
-public class SensorLog {
+import java.io.Serializable;
+
+public class SensorLog implements Serializable {
     private int id;
     private String datetime;
     private int smoke_level;

@@ -99,10 +99,14 @@
                               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                            </opaqueInsets>
                            <children>
-                              <TableView layoutX="-1.0" layoutY="32.0" prefHeight="242.0" prefWidth="1220.0">
+                              <TableView fx:id="sensortable" layoutX="-1.0" layoutY="32.0" prefHeight="242.0" prefWidth="1220.0">
                                 <columns>
-                                  <TableColumn prefWidth="75.0" text="C1" />
-                                  <TableColumn prefWidth="75.0" text="C2" />
+                                   <TableColumn fx:id="id" minWidth="40" text="Sensor Id" />
+                                   <TableColumn fx:id="floor_no" minWidth="230" text="Floor No" />
+                                   <TableColumn fx:id="room_no" minWidth="230" text="Room No" />
+                                   <TableColumn fx:id="co2_level" minWidth="245" text="Co2 Level" />
+                                   <TableColumn fx:id="smoke_level" minWidth="245" text="Smoke Level" />
+                                   <TableColumn fx:id="status" minWidth="20" text="Status" />
                                 </columns>
                               </TableView>
                               <Text fill="#1e2224ba" layoutX="11.0" layoutY="23.0" text="Current Sensor Details" wrappingWidth="234.99220657348633">
