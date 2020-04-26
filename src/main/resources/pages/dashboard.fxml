@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="800" prefWidth="1260" style="-fx-background-color: #eef5f9;" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DashboardController">
+   <center>
+      <ScrollPane hbarPolicy="NEVER" prefHeight="800" prefWidth="1260" style="-fx-background-color: #eef5f9;" BorderPane.alignment="CENTER">
+         <content>
+            <VBox prefHeight="800.0" prefWidth="1260.0" style="-fx-background-color: #eef5f9;">
+               <children>
+                  <Pane prefHeight="81.0" prefWidth="1260.0" style="-fx-background-color: #eef5f9;;">
+                     <children>
+                        <Text fill="#202426e3" layoutX="26.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="bold" text="Sensor Live Data" wrappingWidth="170.59432983398438">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Pane>
+                  <HBox prefHeight="450.0" prefWidth="1260.0" style="-fx-background-color: #eef5f9;">
+                     <children>
+                        <AnchorPane prefHeight="600.0" prefWidth="950.0">
+                           <children>
+                              <BorderPane layoutX="26.0" layoutY="17.0" prefHeight="440.0" prefWidth="920.0" styleClass="leftpanel" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <opaqueInsets>
+                                    <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                                 </opaqueInsets>
+                                 <top>
+                                    <Pane prefHeight="46.0" prefWidth="920.0" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <Text fill="#1e2224ba" layoutX="22.0" layoutY="29.0" text="Average Co2 &amp; Smoke Levels" wrappingWidth="234.99220657348633">
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font>
+                                             <styleClass>
+                                                <String fx:value="leftpanel" />
+                                                <String fx:value="bold" />
+                                             </styleClass>
+                                          </Text>
+                                          <Text fill="#1e2224ba" layoutX="849.0" layoutY="29.0" styleClass="bold" text="Co2" textAlignment="RIGHT" wrappingWidth="38.99220657348633">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fill="#1e2224ba" layoutX="787.0" layoutY="29.0" styleClass="bold" text="Smoke" textAlignment="RIGHT" wrappingWidth="51.99220657348633">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </Pane>
+                                 </top>
+                                 <center>
+                                    <AnchorPane prefWidth="812.0" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <LineChart layoutX="17.0" layoutY="-1.0" prefHeight="385.0" prefWidth="887.0">
+                                             <xAxis>
+                                                <CategoryAxis side="BOTTOM" />
+                                             </xAxis>
+                                             <yAxis>
+                                                <NumberAxis side="LEFT" />
+                                             </yAxis>
+                                          </LineChart>
+                                       </children>
+                                    </AnchorPane>
+                                 </center>
+                              </BorderPane>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="20.0" right="10.0" />
+                           </HBox.margin>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="600.0" prefWidth="310.0">
+                           <children>
+                              <AnchorPane layoutX="26.0" layoutY="17.0" prefHeight="450.4" prefWidth="295.2" styleClass="leftpanel" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="20.0" />
+                           </HBox.margin>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="304.0" prefWidth="1260.0" style="-fx-background-color: #eef5f9;">
+                   
+                     <children>
+                        <AnchorPane prefHeight="291.0" prefWidth="1240.0" style="-fx-background-color: #ffffff;" styleClass="leftpanel">
+                           <opaqueInsets>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </opaqueInsets>
+                           <children>
+                              <TableView layoutX="-1.0" layoutY="32.0" prefHeight="242.0" prefWidth="1220.0">
+                                <columns>
+                                  <TableColumn prefWidth="75.0" text="C1" />
+                                  <TableColumn prefWidth="75.0" text="C2" />
+                                </columns>
+                              </TableView>
+                              <Text fill="#1e2224ba" layoutX="11.0" layoutY="23.0" text="Current Sensor Details" wrappingWidth="234.99220657348633">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <styleClass>
+                                    <String fx:value="leftpanel" />
+                                    <String fx:value="bold" />
+                                 </styleClass>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
+                     </VBox.margin></HBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>
