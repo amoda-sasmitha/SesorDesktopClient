@@ -129,3 +129,43 @@
 	-fx-text-background-color:  #36BEA6;
     -fx-text-background-color:  #20242650;
 	}
+
+.choice-box .context-menu { -fx-background-color: #FFFFFF; }
+
+.choice-box .menu-item:focused { -fx-background-color: #D8D8D8; }
+// Text color of non-focused items in the list
+.choice-box .menu-item > .label { -fx-text-fill: #21252855; }
+// Text color of focused item in the list
+.choice-box .menu-item:focused > .label { -fx-text-fill: #FFFFFF; }
+
+.choice-box {
+  -fx-background-color: #FFFFFF;
+  -fx-mark-color: #D8D8D8; // arrow color
+}
+
+// Selected item text color on the control itself
+.choice-box > .label { -fx-text-fill: white; }
+
+.axis:top {
+    -fx-border-color: transparent;
+}
+
+.axis:right {
+    -fx-border-color: transparent;
+}
+
+.axis:bottom {
+    -fx-border-color: transparent;
+}
+
+.axis:left {
+    -fx-border-color: transparent;
+}
+
+.chart-vertical-grid-lines {
+    -fx-stroke: transparent;
+}
+
+.chart-horizontal-grid-lines {
+    -fx-stroke: transparent;
+}

@@ -1,10 +1,13 @@
 package controllers;
 
+import com.model.SensorLog;
 import com.service.ISensorService;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import com.model.Sensor;
+import javafx.scene.chart.*;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -16,12 +19,18 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RMISecurityManager;
 import java.rmi.RemoteException;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 public class DashboardController implements Initializable {
+
+    @FXML
+    private AreaChart<String,Number> livechart;
+
+    @FXML
+    private CategoryAxis x;
+
+    @FXML
+    private NumberAxis y;
 
     @FXML
     private TableView<Sensor> sensortable;
@@ -45,11 +54,28 @@ public class DashboardController implements Initializable {
     private TableColumn<Sensor,String> status;
 
     ArrayList<Sensor> sensorsData = new ArrayList<Sensor>();
+    LinkedList<SensorLog> sensorLogs = new LinkedList<SensorLog>();
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+    }
+
+    public void setLivechart(){
+        XYChart.Series smoke = new XYChart.Series();
+        XYChart.Series co2 = new XYChart.Series();
+        co2.setName("co2");
+        smoke.setName("smoke");
+
+        for (int i = 0; i < sensorLogs.size(); i++) {
+            co2.getData().add(new XYChart.Data( sensorLogs.get(i).getDatetime() , sensorLogs.get(i).getAverage_co2() ));
+            smoke.getData().add(new XYChart.Data( sensorLogs.get(i).getDatetime(), sensorLogs.get(i).getAverage_smoke()));
+        }
+        livechart.getData().clear();
+        livechart.layout();
+        livechart.getData().addAll(co2, smoke);
+        livechart.setLegendVisible(false);
     }
 
     public void setTableData(){
@@ -91,7 +117,16 @@ public class DashboardController implements Initializable {
                 public void run() {
                     try {
                         sensorsData =  finalService.getAllSensorsCurrentData();
+                        sensorLogs = finalService.getAllSensorsLog();
+                        System.out.println(sensorLogs.size());
                         setTableData();
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                setLivechart();
+                            }
+                        });
+
                     } catch (IOException e) {
                         System.out.println(e);
                     }

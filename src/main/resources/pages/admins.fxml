@@ -1,10 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.BorderPane?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<BorderPane prefHeight="800" prefWidth="1260" style="-fx-background-color: #0000ff;"
-            xmlns="http://javafx.com/javafx/11.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminsController">
-
+<BorderPane prefHeight="800" prefWidth="1260" style="-fx-background-color: #0000ff;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminsController">
+    <center>
+        <VBox prefHeight="800.0" prefWidth="1260.0" style="-fx-background-color: #eef5f9;">
+            <children>
+                <Pane prefHeight="42.0" prefWidth="1260.0" style="-fx-background-color: #eef5f9;;" stylesheets="@../styles/main.css">
+                    <children>
+                        <Text fill="#202426e3" layoutX="26.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="bold" text="Admin Details" wrappingWidth="170.59432983398438">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </Pane>
+                <HBox prefHeight="304.0" prefWidth="1260.0" style="-fx-background-color: #eef5f9;">
+                    <children>
+                        <AnchorPane prefHeight="291.0" prefWidth="1240.0" style="-fx-background-color: #ffffff;" styleClass="leftpanel">
+                            <opaqueInsets>
+                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                            </opaqueInsets>
+                            <children>
+                                <TableView fx:id="admin_table" layoutX="-1.0" layoutY="32.0" prefHeight="242.0" prefWidth="1220.0">
+                                    <columns>
+                                        <TableColumn fx:id="id" minWidth="40" text="Id" />
+                                        <TableColumn fx:id="username" minWidth="230" text="Username" />
+                                        <TableColumn fx:id="email" minWidth="230" text="Email" />
+                                        <TableColumn fx:id="password" minWidth="245" text="Phone No" />
+                                    </columns>
+                                </TableView>
+                                <Text fill="#1e2224ba" layoutX="11.0" layoutY="23.0" text="Current Sensor Details" wrappingWidth="234.99220657348633">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                    <styleClass>
+                                        <String fx:value="leftpanel" />
+                                        <String fx:value="bold" />
+                                    </styleClass>
+                                </Text>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
+                    </VBox.margin></HBox>
+            </children>
+        </VBox>
+    </center>
 </BorderPane>

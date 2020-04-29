@@ -1,30 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.Group?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.LineChart?>
-<?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="800" prefWidth="1260" style="-fx-background-color: #00ff00;" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SensorsController">
+<BorderPane prefHeight="800" prefWidth="1260" style="-fx-background-color: #00ff00;" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SensorsController">
     <center>
         <ScrollPane fx:id="scroll" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="800" prefWidth="1260" style="-fx-background-color: #eef5f9;" vvalue="1.0" BorderPane.alignment="TOP_CENTER">
             <content>
-            <Group>
+            <Group layoutY="-20.0">
                <children>
                       <VBox prefHeight="800.0" prefWidth="1260.0" style="-fx-background-color: #eef5f9;">
                           <children>
@@ -41,7 +30,7 @@
                                        </image>
                                     </ImageView>
                                     <Label layoutX="91.0" layoutY="15.0" styleClass="card-title" text="Co2 Level" />
-                                    <Label layoutX="91.0" layoutY="37.0" styleClass="card-title-2" text="2.00" />
+                                    <Label layoutX="91.0" fx:id="currentco2" layoutY="37.0" styleClass="card-title-2" text="0.00" />
                                  </children>
                               </Pane>
                               <Pane prefHeight="200.0" prefWidth="285.0" style="-fx-background-color: #ffffff;" styleClass="box_shadow">
@@ -52,25 +41,26 @@
                                        </image>
                                     </ImageView>
                                    <Label layoutX="91.0" layoutY="15.0" styleClass="card-title" text="Smoke Level" />
-                                   <Label layoutX="91.0" layoutY="37.0" styleClass="card-title-2" text="5.00" />
+                                   <Label layoutX="91.0" layoutY="37.0" fx:id="currentsmoke" styleClass="card-title-2" text="0.00" />
                                </children>
                               </Pane>
                                <Pane prefHeight="200.0" prefWidth="190.0" style="-fx-background-color: #ffffff;" styleClass="box_shadow">
                                    <children>
                                        <Label layoutX="45.0" layoutY="15.0" styleClass="card-title" text="Sensor Id" />
-                                       <Label layoutX="45.0" layoutY="37.0" styleClass="card-title-2" text="005" />
+                                       <Label layoutX="55.0" layoutY="37.0" fx:id="sensor_id_label" styleClass="card-title-2" text="0" />
+                                        <ChoiceBox layoutX="100.0" fx:id="sensor_id_selector" layoutY="40.0" prefWidth="30.0" />
                                    </children>
                                </Pane>
                                <Pane prefHeight="200.0" prefWidth="190.0" style="-fx-background-color: #ffffff;" styleClass="box_shadow">
                                    <children>
                                        <Label layoutX="45.0" layoutY="15.0" styleClass="card-title" text="Floor No" />
-                                       <Label layoutX="45.0" layoutY="37.0" styleClass="card-title-2" text="5000" />
+                                       <Label layoutX="45.0" layoutY="37.0" fx:id="flood_id" styleClass="card-title-2" text="5000" />
                                    </children>
                                </Pane>
                                <Pane prefHeight="200.0" prefWidth="195.0" style="-fx-background-color: #ffffff;" styleClass="box_shadow">
                                    <children>
                                        <Label layoutX="45.0" layoutY="15.0" styleClass="card-title" text="Room No" />
-                                       <Label layoutX="45.0" layoutY="37.0" styleClass="card-title-2" text="580" />
+                                       <Label layoutX="45.0" layoutY="37.0" fx:id="room_id" styleClass="card-title-2" text="580" />
                                    </children>
                                </Pane>
       
@@ -110,14 +100,14 @@
                                        <bottom>
                                                       <AnchorPane maxWidth="757" minHeight="-Infinity" prefHeight="388.0" prefWidth="575" BorderPane.alignment="CENTER">
                                                           <children>
-                                                              <LineChart layoutX="1.0" layoutY="-1.0" maxWidth="575" prefHeight="376.0" prefWidth="575">
+                                                              <AreaChart fx:id="smoke_chart" layoutX="1.0" layoutY="-1.0" maxWidth="575" prefHeight="376.0" prefWidth="575">
                                                                   <xAxis>
-                                                                      <CategoryAxis side="BOTTOM" />
+                                                                      <CategoryAxis fx:id="smoke_x" side="BOTTOM" />
                                                                   </xAxis>
                                                                   <yAxis>
-                                                                      <NumberAxis side="LEFT" />
+                                                                      <NumberAxis  fx:id="smoke_y" side="LEFT" />
                                                                   </yAxis>
-                                                              </LineChart>
+                                                              </AreaChart>
                                                           </children>
                                              <padding>
                                                 <Insets right="15.0" />
@@ -162,14 +152,14 @@
                                        <bottom>
                                           <AnchorPane maxWidth="575.0" minHeight="-Infinity" prefHeight="388.0" prefWidth="575.0" BorderPane.alignment="CENTER">
                                              <children>
-                                                <LineChart layoutX="-10.0" layoutY="-1.0" maxWidth="570" prefHeight="381.0" prefWidth="570.0">
+                                                <AreaChart fx:id="co2_chart" layoutX="-10.0" layoutY="-1.0" maxWidth="570" prefHeight="381.0" prefWidth="570.0">
                                                    <xAxis>
-                                                      <CategoryAxis side="BOTTOM" />
+                                                      <CategoryAxis fx:id="co2_x" side="BOTTOM" />
                                                    </xAxis>
                                                    <yAxis>
-                                                      <NumberAxis side="LEFT" />
+                                                      <NumberAxis fx:id="co2_y" side="LEFT" />
                                                    </yAxis>
-                                                </LineChart>
+                                                </AreaChart>
                                              </children>
                                              <padding>
                                                 <Insets right="15.0" />
@@ -189,10 +179,11 @@
                                               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                           </opaqueInsets>
                                           <children>
-                                              <TableView layoutX="-1.0" layoutY="32.0" prefHeight="242.0" prefWidth="1220.0">
+                                              <TableView fx:id="sensor_log" layoutX="-1.0" layoutY="32.0" prefHeight="242.0" prefWidth="1220.0">
                                                   <columns>
-                                                      <TableColumn prefWidth="75.0" text="C1" />
-                                                      <TableColumn prefWidth="75.0" text="C2" />
+                                                      <TableColumn fx:id="co2_level" minWidth="245" text="Co2 Level" />
+                                                      <TableColumn fx:id="smoke_level" minWidth="245" text="Smoke Level" />
+                                                      <TableColumn fx:id="updated_at" minWidth="245" text="Updated At" />
                                                   </columns>
                                               </TableView>
                                               <Text fill="#1e2224ba" layoutX="11.0" layoutY="23.0" text="Sensor Log" wrappingWidth="234.99220657348633">

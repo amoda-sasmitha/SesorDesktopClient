@@ -9,13 +9,14 @@ import java.io.IOException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public interface ISensorService extends Remote {
 
     public ArrayList<Sensor> getAllSensorsCurrentData() throws RemoteException;
-    public ArrayList<SensorLog> getAllSensorsLog() throws RemoteException;
+    public LinkedList<SensorLog> getAllSensorsLog() throws RemoteException;
     public Sensor getSensorCurrentData(int id) throws RemoteException;
-    public Sensor getSensorLog(int id) throws RemoteException;
+    public LinkedList<SensorLog> getSensorLog(int id) throws RemoteException;
     public String test(String msg) throws RemoteException;
     public void updateValues() throws IOException;
 }
