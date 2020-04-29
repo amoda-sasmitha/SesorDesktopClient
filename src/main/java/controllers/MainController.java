@@ -61,6 +61,12 @@ public class MainController implements Initializable {
                 DashboardController dashboardController = fxmlLoader.<DashboardController>getController();
                 dashboardController.init(timer);
             }
+            if(page == "sensors"){
+                timer = new Timer();
+                SensorsController sensorsController = fxmlLoader.<SensorsController>getController();
+                sensorsController.init(timer);
+            }
+
             bp.setCenter(root);
         } catch (IOException ex) {
             System.out.println("Exception : " +ex);
