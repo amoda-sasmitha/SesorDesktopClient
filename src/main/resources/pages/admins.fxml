@@ -1,40 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="800" prefWidth="1260" style="-fx-background-color: #0000ff;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminsController">
+<BorderPane prefHeight="800" prefWidth="1260" style="-fx-background-color: #0000ff;" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminsController">
     <center>
         <VBox prefHeight="800.0" prefWidth="1260.0" style="-fx-background-color: #eef5f9;">
             <children>
-                <Pane prefHeight="42.0" prefWidth="1260.0" style="-fx-background-color: #eef5f9;;" stylesheets="@../styles/main.css">
+                <Pane prefHeight="68.0" prefWidth="1260.0" style="-fx-background-color: #eef5f9;;" stylesheets="@../styles/main.css">
                     <children>
-                        <Text fill="#202426e3" layoutX="26.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="bold" text="Admin Details" wrappingWidth="170.59432983398438">
+                        <Text fill="#202426e3" layoutX="26.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="bold" text="Admin Details" wrappingWidth="170.59432983398438">
                             <font>
                                 <Font name="System Bold" size="18.0" />
                             </font>
                         </Text>
+                  <Button fx:id="mode_btn" layoutX="154.0" layoutY="24.0" mnemonicParsing="false" onAction="#onChangeMode" prefHeight="25.0" prefWidth="131.0" styleClass="btninfo" text="Change to Edit" />
                     </children>
                 </Pane>
+            <HBox prefHeight="200" prefWidth="1260.0" style="-fx-background-color: #eef5f9;">
+            <children>
+                <AnchorPane prefHeight="225.0" prefWidth="1194.0" style="-fx-background-color: #ffffff;" styleClass="leftpanel">
+                     <children>
+                        <Label layoutX="24.0" layoutY="14.0" prefHeight="16.0" prefWidth="146.0" styleClass="label-title" text="User Id" />
+                        <TextField fx:id="id_input" disable="true" layoutX="23.0" layoutY="40.0"  prefHeight="34.0" prefWidth="266.0" promptText="Enter Admin ID" />
+
+                         <Label layoutX="24.0" layoutY="95.0" prefHeight="16.0" prefWidth="146.0" styleClass="label-title" text="Password" />
+                        <TextField fx:id="password_input" layoutX="23.0" layoutY="121.0" prefHeight="34.0" prefWidth="266.0" promptText="Password Will Send to the Email" />
+
+                         <Label layoutX="338.0" layoutY="14.0" prefHeight="16.0" prefWidth="146.0" styleClass="label-title" text="Email Address" />
+                        <TextField fx:id="email_input" layoutX="337.0" layoutY="40.0" prefHeight="34.0" prefWidth="266.0" promptText="Enter Email" />
+
+                         <Label layoutX="657.0" layoutY="14.0" prefHeight="16.0" prefWidth="146.0" styleClass="label-title" text="Phone No" />
+                        <TextField fx:id="phone_input" layoutX="656.0" layoutY="40.0" prefHeight="34.0" prefWidth="266.0" promptText="Enter Phone No" />
+
+                         <Label layoutX="338.0" layoutY="95.0" prefHeight="16.0" prefWidth="146.0" styleClass="label-title" text="User Name" />
+                         <TextField fx:id="username_input" layoutX="337.0" layoutY="121.0" prefHeight="34.0" prefWidth="266.0" promptText="Enter Username" />
+
+                         <Label layoutX="657.0" layoutY="95.0" prefHeight="16.0" prefWidth="146.0" styleClass="label-title" text="Actions" />
+                        <Button fx:id="insert" layoutX="657.0" layoutY="121.0" mnemonicParsing="false" onAction="#onClickInsert" prefHeight="27.0" prefWidth="98.0" styleClass="btnsuccess" text="Register" />
+                        <Button fx:id="edit" visible="false"  layoutX="657.0" layoutY="121.0" mnemonicParsing="false" onAction="#onClickEdit" prefHeight="27.0" prefWidth="94.0" styleClass="btninfo" text="Edit" />
+                        <Button fx:id="delete" layoutX="657.0" layoutY="121.0" mnemonicParsing="false" onAction="#onClickDelete" prefHeight="27.0" prefWidth="94.0" styleClass="btndelete" text="Delete" />
+                     </children>
+                </AnchorPane>
+            </children>
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
+            </HBox>
                 <HBox prefHeight="304.0" prefWidth="1260.0" style="-fx-background-color: #eef5f9;">
                     <children>
-                        <AnchorPane prefHeight="291.0" prefWidth="1240.0" style="-fx-background-color: #ffffff;" styleClass="leftpanel">
+                        <AnchorPane prefHeight="200" prefWidth="1240.0" style="-fx-background-color: #ffffff;" styleClass="leftpanel">
                             <opaqueInsets>
                                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                             </opaqueInsets>
                             <children>
                                 <TableView fx:id="admin_table" layoutX="-1.0" layoutY="32.0" prefHeight="242.0" prefWidth="1220.0">
                                     <columns>
-                                        <TableColumn fx:id="id" minWidth="40" text="Id" />
-                                        <TableColumn fx:id="username" minWidth="230" text="Username" />
-                                        <TableColumn fx:id="email" minWidth="230" text="Email" />
-                                        <TableColumn fx:id="password" minWidth="245" text="Phone No" />
+                                        <TableColumn fx:id="id" minWidth="200" text="Id" />
+                                        <TableColumn fx:id="username" minWidth="260" text="Username" />
+                                        <TableColumn fx:id="email" minWidth="260" text="Email" />
+                                        <TableColumn fx:id="phone" minWidth="265" text="Phone No" />
                                     </columns>
                                 </TableView>
-                                <Text fill="#1e2224ba" layoutX="11.0" layoutY="23.0" text="Current Sensor Details" wrappingWidth="234.99220657348633">
+                                <Text fill="#1e2224ba" layoutX="11.0" layoutY="23.0" text="Current Admins Details" wrappingWidth="234.99220657348633">
                                     <font>
                                         <Font name="System Bold" size="15.0" />
                                     </font>

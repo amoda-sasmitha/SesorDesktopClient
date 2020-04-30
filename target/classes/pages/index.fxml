@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane fx:id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" style="-fx-background-color: #eef5f9;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
+<BorderPane fx:id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" style="-fx-background-color: #eef5f9;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
    <left>
       <VBox prefHeight="760.0" prefWidth="240.0" style="-fx-background-color: #FFFFFF;" styleClass="box_shadow" stylesheets="@../styles/main.css" BorderPane.alignment="CENTER">
          <children>
@@ -44,7 +40,19 @@
                   </ImageView>
                </graphic>
             </Label>
-            <Label id="sensors" layoutX="10.0" layoutY="110.0" onMouseClicked="#onSensorClicked" prefHeight="50.0" prefWidth="249.0" style="-fx-background-color: #F5F5F5;" styleClass="btn_padding" text="  Sensors" textFill="#1e2224c0">
+            <Label id="sensors" layoutX="10.0" layoutY="110.0" onMouseClicked="#onSensorClicked" prefHeight="50.0" prefWidth="249.0" style="-fx-background-color: #F5F5F5;" styleClass="btn_padding" text="  Sensor Details" textFill="#1e2224c0">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label id="sensors" layoutX="10.0" layoutY="165.0" onMouseClicked="#onManageSensorClicked" prefHeight="50.0" prefWidth="249.0" style="-fx-background-color: #F5F5F5;" styleClass="btn_padding" text="  Manage Sensors" textFill="#1e2224c0">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>

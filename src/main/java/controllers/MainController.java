@@ -74,4 +74,8 @@ public class MainController implements Initializable {
 
     }
 
+    public void onManageSensorClicked(MouseEvent mouseEvent) {
+        System.out.println("Manage Sensors Clicked");
+        loadPage("manage_sensors" , mainpanel );
+    }
 }
