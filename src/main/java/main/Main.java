@@ -20,7 +20,8 @@ public class Main extends Application {
 
     @Override
     public void start(final Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/pages/index.fxml"));
+
+        Parent root = FXMLLoader.load(getClass().getResource("/pages/login.fxml"));
         primaryStage.initStyle(StageStyle.UNDECORATED);
 
         root.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -39,8 +40,7 @@ public class Main extends Application {
             }
         });
 
-
-        Scene dashboard = new Scene(root, 1500, 800);
+        Scene dashboard = new Scene(root, 800, 515);
         dashboard.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
         primaryStage.setScene(dashboard);
         primaryStage.show();

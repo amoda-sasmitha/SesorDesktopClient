@@ -1,5 +1,6 @@
 package controllers;
 
+import com.model.User;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,9 +11,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
+import javax.xml.soap.Text;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Timer;
@@ -25,9 +28,14 @@ public class MainController implements Initializable {
     @FXML
     private BorderPane mainpanel;
 
+    @FXML
+    private Label emailadmin;
+
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("from dashboard controller");
         loadPage("dashboard" , mainpanel );
+
+        emailadmin.setText(User.getInstance().getEmail());
 
 
     }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="515" prefWidth="800" style="-fx-background-color: #0000ff;" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
+    <center>
+        <AnchorPane prefHeight="515.0" prefWidth="400.0" style="-fx-background-color: #ffffff;">
+            <children>
+                <AnchorPane layoutX="200.0" layoutY="1.0" prefHeight="515.0" prefWidth="600.0" style="-fx-background-color: #ffffff;">
+                    <children>
+                        <Label layoutX="300.0" layoutY="55.0" text="Sign In" textFill="#373737" AnchorPane.topAnchor="126.0">
+                            <font>
+                                <Font name="Calibri Bold" size="32.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="lblUssername" layoutX="300.0" layoutY="185.0" text="Email">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="lblPassword" layoutX="300.0" layoutY="250.0" text="Password">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="txtUsername" layoutX="300.0" layoutY="212.0" prefHeight="25.0" prefWidth="236.0" />
+                        <PasswordField fx:id="txtPassword" layoutX="300.0" layoutY="278.0" prefHeight="25.0" prefWidth="236.0" />
+                  <Button layoutX="299.0" layoutY="327.0" mnemonicParsing="false" onAction="#onClickSubmit" prefWidth="241.0" text="Log In" />
+                  <Label fx:id="error" layoutX="299.0" layoutY="369.0" prefHeight="18.0" prefWidth="242.0" style="-fx-text-fill: #ff0000;" />
+
+                    </children>
+                </AnchorPane>
+                <ImageView fitHeight="515.0" fitWidth="459.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/ulogin.jpg" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>
